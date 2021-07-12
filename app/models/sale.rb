@@ -1,4 +1,6 @@
 class Sale < ApplicationRecord
-  has_one :buyer
-  has_one :supplier
+  belongs_to :buyer
+  belongs_to :supplier
+
+  accepts_nested_attributes_for :buyer, :supplier
 end

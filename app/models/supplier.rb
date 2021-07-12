@@ -1,3 +1,3 @@
 class Supplier < ApplicationRecord
-  belongs_to :sale
+  has_many :sales
 end

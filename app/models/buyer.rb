@@ -1,3 +1,3 @@
 class Buyer < ApplicationRecord
-  belongs_to :sale
+  has_many :sales
 end

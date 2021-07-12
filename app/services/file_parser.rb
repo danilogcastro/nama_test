@@ -20,9 +20,11 @@ class FileParser
     array_of_hashes = []
     array.each do |item|
       built_hash = {
-        buyer: { name: item[0], address: item[4] },
-        sale: { description: item[1], unit_price: item[2], quantity: item[3] },
-        supplier: { name: item[5].chomp! }
+        description: item[1], 
+        unit_price: item[2].to_f, 
+        quantity: item[3].to_i,
+        buyer_attributes: { name: item[0], address: item[4] },
+        supplier_attributes: { name: item[5].chomp! }
       }
       array_of_hashes << built_hash
     end
