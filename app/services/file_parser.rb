@@ -22,7 +22,7 @@ class FileParser
       built_hash = {
         buyer: { name: item[0], address: item[4] },
         sale: { description: item[1], unit_price: item[2], quantity: item[3] },
-        supplier: item[5].chomp!
+        supplier: { name: item[5].chomp! }
       }
       array_of_hashes << built_hash
     end

@@ -10,6 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_07_12_213855) do
 
+  create_table "buyers", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.string "description"
+    t.decimal "unit_price"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "buyer_id", null: false
+    t.integer "supplier_id", null: false
+    t.index ["buyer_id"], name: "index_sales_on_buyer_id"
+    t.index ["supplier_id"], name: "index_sales_on_supplier_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "sales", "buyers"
+  add_foreign_key "sales", "suppliers"
 end
