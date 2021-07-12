@@ -1,6 +1,6 @@
 class FileParser
   def initialize(file)
-    @file = file
+    @file = file.open
   end
 
   def parse
