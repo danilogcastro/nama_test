@@ -8,16 +8,12 @@ class SalesController < ApplicationController
   end
 
   def create
-    # binding.pry
     records = FileParser.new(params[:sale][:uploaded_file]).parse
     records.each do |record|
-      @sale = Sale.new
-      @sale.build_buyer
-      @sale.build_supplier
-      @sale.update(record)
+      @sale = Sale.new(record)
       @sale.save
     end
-    redirect_to sales_path, flash: { notice: 'Registros importados com sucesso!' }
+    redirect_to sales_path, notice: "Registros importados com sucesso"
   end
 
   private
