@@ -1,1 +1,12 @@
-<h1>test</h1>
+<h1>Registro de vendas</h1>
+
+<%= link_to "Adicionar registros", new_sale_path  %>
+
+<% @sales.each do |sale| %>
+  <h3><%= sale.id %> - <%= sale.description %></h3>
+  <p><%= sale.buyer.name %></p>
+  <p><%= sale.buyer.address %></p>
+  <p><%= sale.supplier.name %></p>
+  <p><%= sale.unit_price %></p>
+  <p><%= sale.quantity %></p>
+<% end %>
