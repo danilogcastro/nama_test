@@ -17,10 +17,9 @@ describe Sale do
   it 'precisa ter quantidade de itens' do
     expect(subject).to be_valid
   end
-  it 'precisa ter um comprador' do
-    expect(subject).to be_valid
-  end
-  it 'precisa ter um fornecedor' do
-    expect(subject).to be_valid
+
+  describe "Associações" do
+    it { should belong_to(:buyer).without_validating_presence }
+    it { should belong_to(:buyer).without_validating_presence }
   end
 end
