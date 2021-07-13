@@ -1,6 +1,7 @@
 <h1>upload your file</h1>
 
 <%= form_for @sale do |f| %>
+  <%= f.label :uploaded_file %>
   <%= f.file_field :uploaded_file %>
-  <%= f.submit %>
+  <%= f.submit id: "upload_button" %>
 <% end %>

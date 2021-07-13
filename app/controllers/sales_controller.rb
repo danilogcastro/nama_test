@@ -8,6 +8,7 @@ class SalesController < ApplicationController
   end
 
   def create
+    # binding.pry
     records = FileParser.new(params[:sale][:uploaded_file]).parse
     records.each do |record|
       @sale = Sale.new
