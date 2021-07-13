@@ -1,7 +1,17 @@
-<h1>upload your file</h1>
+<h1 class="mt-4">Faça upload do seu arquivo</h1>
 
-<%= form_for @sale do |f| %>
-  <%= f.label :uploaded_file %>
-  <%= f.file_field :uploaded_file %>
-  <%= f.submit id: "upload_button" %>
-<% end %>
+<div class="upload_form my-3">
+  <%= form_for @sale do |f| %>
+    <div class="upload_label my-2">
+      <%= f.label :upload_file, value: "Escolha um arquivo" %>
+    </div>
+    <div class="upload_input my-4">
+      <%= f.file_field :uploaded_file %>
+    </div>
+    <div>
+      <%= f.submit "Enviar", class: "upload_button btn btn-success my-2" %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Voltar para a página principal", sales_path %>
