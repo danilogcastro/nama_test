@@ -1,12 +1,11 @@
-<h1>Registro de vendas</h1>
+<h1 class="my-3 text-center">Registro de vendas</h1>
 
-<%= link_to "Adicionar registros", new_sale_path  %>
+<%= link_to "Adicionar registros", new_sale_path, class: "my-3 btn btn-primary"  %>
 
-<% @sales.each do |sale| %>
-  <h3><%= sale.id %> - <%= sale.description %></h3>
-  <p><%= sale.buyer.name %></p>
-  <p><%= sale.buyer.address %></p>
-  <p><%= sale.supplier.name %></p>
-  <p><%= sale.unit_price %></p>
-  <p><%= sale.quantity %></p>
-<% end %>
+<div class="sales my-3">
+  <% @sales.each do |sale| %>
+    <%= render partial: 'sale_card', locals: { sale: sale } %>
+  <% end %>
+</div>
+
+<h3 class="font-weight-bold">Receita Bruta Total: <%= total_gross(@sales) %></h3>

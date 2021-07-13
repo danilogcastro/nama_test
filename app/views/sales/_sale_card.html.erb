@@ -1,0 +1,10 @@
+<div class="sale_card border-bottom my-2">
+  <h3>Venda <%= sale.id %></h3>
+  <h4>Descrição: <%= sale.description %></h4>
+  <h4>Comprador: <%= sale.buyer.name %></h4>
+  <h4>Endereço: <%= sale.buyer.address %></h4>
+  <h4>Fornecedor: <%= sale.supplier.name %></h4>
+  <p>Quantidade: <%= sale.quantity %></p>
+  <p>Preço Unitário: <%= number_to_currency(sale.unit_price, unit: "R$", separator: ",", delimiter: ".") %></p>
+  <p>Total da venda: <%= sale_total(sale) %> </p>
+</div>
